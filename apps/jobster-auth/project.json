@@ -40,7 +40,7 @@
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "jobster-auth:build",
-        "runBuildTargetDependencies": false
+        "runBuildTargetDependencies": true
       },
       "configurations": {
         "development": {
