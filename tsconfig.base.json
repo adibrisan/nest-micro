@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@jobster/nestjs": ["libs/nestjs/src/index.ts"]
+      "@jobster/nestjs": ["libs/nestjs/src/index.ts"],
+      "@jobster/pulsar": ["libs/pulsar/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
