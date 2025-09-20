@@ -37,7 +37,11 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/jobster-auth-e2e/**/*", "apps/jobster-jobs-e2e/**/*"]
+      "exclude": [
+        "apps/jobster-auth-e2e/**/*",
+        "apps/jobster-jobs-e2e/**/*",
+        "apps/jobster-executor-e2e/**/*"
+      ]
     }
   ],
   "targetDefaults": {
