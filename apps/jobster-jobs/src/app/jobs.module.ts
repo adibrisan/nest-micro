@@ -4,7 +4,7 @@ import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { DiscoveryModule } from '@golevelup/nestjs-discovery';
-import { FibonacciJob } from './fibonacci.job';
+import { FibonacciJob } from './jobs/fibonacci/fibonacci.job';
 import { JobsService } from './jobs.service';
 import { JobsResolver } from './jobs.resolver';
 import { PulsarModule } from '@jobster/pulsar';
