@@ -1,4 +1,4 @@
-import { GqlAuthGuard } from '@jobster/nestjs';
+import { GqlAuthGuard } from '@jobster/graphql';
 import { JobsService } from './jobs.service';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Job } from './models/job.model';

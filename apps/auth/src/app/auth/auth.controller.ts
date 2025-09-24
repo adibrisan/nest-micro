@@ -7,7 +7,7 @@ import {
   AuthServiceController,
   AuthServiceControllerMethods,
   User,
-} from 'types/proto/auth';
+} from 'libs/grpc/src/lib/types/proto/auth';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { TokenPayload } from './token-payload.interface';
 

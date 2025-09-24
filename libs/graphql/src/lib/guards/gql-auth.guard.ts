@@ -3,7 +3,7 @@ import {
   AUTH_PACKAGE_NAME,
   AUTH_SERVICE_NAME,
   AuthServiceClient,
-} from 'types/proto/auth';
+} from '@jobster/grpc';
 import {
   CanActivate,
   ExecutionContext,

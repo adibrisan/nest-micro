@@ -1,0 +1,9 @@
+{
+  "name": "@jobster/prisma",
+  "version": "0.0.0",
+  "dependencies": {
+    "@prisma/client": "^6.14.0",
+    "prisma": "^6.14.0"
+  },
+  "devDependencies": {}
+}
