@@ -1,6 +1,8 @@
 {
   "name": "@jobster/executor",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "fibonacci": "^1.6.12"
+  },
   "devDependencies": {}
 }
