@@ -1,5 +1,5 @@
 import { UsersService } from './../users/users.service';
-import { Controller, UseGuards } from '@nestjs/common';
+import { Controller, UseGuards, UseInterceptors } from '@nestjs/common';
 import { Observable } from 'rxjs';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import {
@@ -10,9 +10,11 @@ import {
 } from 'libs/grpc/src/lib/types/proto/auth';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { TokenPayload } from './token-payload.interface';
+import { GrpcLogginInterceptor } from '@jobster/grpc';
 
 @Controller()
 @AuthServiceControllerMethods()
+@UseInterceptors(GrpcLogginInterceptor)
 export class AuthController implements AuthServiceController {
   constructor(private readonly usersService: UsersService) {}
 
