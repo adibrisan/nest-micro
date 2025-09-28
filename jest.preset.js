@@ -1,3 +1,7 @@
 const nxPreset = require('@nx/jest/preset').default;
 
-module.exports = { ...nxPreset, passWithNoTests: true };
+module.exports = {
+  ...nxPreset,
+  transformIgnorePatterns: ['node_modules/(?!uuid)'],
+  passWithNoTests: true,
+};
