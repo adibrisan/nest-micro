@@ -1,0 +1,8 @@
+global:
+  imagePullPolicy: Always
+
+jobs: 
+  enabled: true
+  replicas: 1
+  image: '563149050413.dkr.ecr.eu-west-1.amazonaws.com/jobster/jobs:latest'
+  port: 3001
