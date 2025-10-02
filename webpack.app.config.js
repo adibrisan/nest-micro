@@ -13,6 +13,8 @@ module.exports = {
       outputHashing: 'none',
       generatePackageJson: true,
       sourceMaps: true,
+      serverExternalPackages: ['pino-pretty', 'nestjs-pino'],
+      externals: ['pino-pretty', 'nestjs-pino'],
     }),
   ],
 };
