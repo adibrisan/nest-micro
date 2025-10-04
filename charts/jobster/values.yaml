@@ -51,3 +51,20 @@ jobs:
   replicas: 1
   image: '563149050413.dkr.ecr.eu-west-1.amazonaws.com/jobster/jobs:latest'
   port: 3001
+
+executor:
+  enabled: true
+  replicas: 1
+  image: '563149050413.dkr.ecr.eu-west-1.amazonaws.com/jobster/executor:latest'
+  port: 3002
+
+auth:
+  enabled: true
+  replicas: 1
+  image: '563149050413.dkr.ecr.eu-west-1.amazonaws.com/jobster/auth:latest'
+  port: 
+    http: 3000
+    grpc: 5000
+  jwt:
+    secret: kLcv5p09Q7J0Nb8uclUQW8UIdkxP9PUV
+    expirationMs: 28800000
