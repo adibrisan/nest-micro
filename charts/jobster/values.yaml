@@ -1,6 +1,51 @@
 global:
   imagePullPolicy: Always
 
+pulsar:
+  namespace: pulsar
+  namespaceCreate: true
+  zookeeper:
+    replicaCount: 1
+    podMonitor:
+      enabled: false
+  broker:
+    replicaCount: 1
+    podMonitor:
+      enabled: false
+  bookkeeper:
+    replicaCount: 1
+    podMonitor:
+      enabled: false
+  autorecovery:
+    podMonitor:
+      enabled: false
+  proxy:
+    replicaCount: 1
+    podMonitor:
+      enabled: false
+  kube-prometheus-stack:
+    enabled: false
+    prometheusOperator:
+      enabled: false
+    grafana:
+      enabled: false
+    alertmanager:
+      enabled: false
+    prometheus: 
+      enabled: false
+  
+postgresql:
+  namespaceOverride: postgresql
+  auth: 
+    username: postgres
+    password: postgres
+    database: jobster
+  image:
+    registry: docker.io
+    repository: bitnamilegacy/postgresql
+    tag: 17.1.0-debian-12-r0
+
+
 jobs: 
   enabled: true
   replicas: 1
