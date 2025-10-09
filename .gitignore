@@ -45,3 +45,6 @@ Thumbs.db
 
 # env vars
 .env
+
+data/*
+apps/jobs/uploads/*
