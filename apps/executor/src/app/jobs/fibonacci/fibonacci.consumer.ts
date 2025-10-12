@@ -1,15 +1,19 @@
 import { Injectable } from '@nestjs/common';
-import { PulsarClient, PulsarConsumer } from '@jobster/pulsar';
-import { FibonacciData } from './fibonacci-data.interface';
+import {
+  FibonacciMessage,
+  PulsarClient,
+  PulsarConsumer,
+} from '@jobster/pulsar';
+import { Jobs } from '@jobster/nestjs';
 import { iterate } from 'fibonacci';
 
 @Injectable()
-export class FibonacciConsumer extends PulsarConsumer<FibonacciData> {
+export class FibonacciConsumer extends PulsarConsumer<FibonacciMessage> {
   constructor(pulsarClient: PulsarClient) {
-    super(pulsarClient, 'Fibonacci');
+    super(pulsarClient, Jobs.FIBONACCI);
   }
 
-  protected async onMessage(data: FibonacciData): Promise<void> {
+  protected async onMessage(data: FibonacciMessage): Promise<void> {
     const result = iterate(data.iterations);
     this.logger.log(result);
   }
