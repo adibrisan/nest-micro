@@ -14,6 +14,6 @@ export class ProductsController implements ProductsServiceController {
   constructor(private readonly productsService: ProductsService) {}
 
   createProduct(request: CreateProductRequest) {
-    return this.createProduct(request);
+    return this.productsService.createProduct(request);
   }
 }
