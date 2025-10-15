@@ -5,8 +5,15 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1760201431253,
-      "tag": "0000_great_inertia",
+      "when": 1760466213508,
+      "tag": "0000_plain_snowbird",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1760466308226,
+      "tag": "0001_seed-categories",
       "breakpoints": true
     }
   ]

@@ -1,6 +1,6 @@
 {
-  "id": "0a89bca0-7f6d-4e1f-8b74-48654b6ee6f9",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "44358b0a-cc11-475e-8158-f814cfeadbdf",
+  "prevId": "0a89bca0-7f6d-4e1f-8b74-48654b6ee6f9",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -33,8 +33,8 @@
       "uniqueConstraints": {
         "categories_name_unique": {
           "name": "categories_name_unique",
-          "nullsNotDistinct": false,
-          "columns": ["name"]
+          "columns": ["name"],
+          "nullsNotDistinct": false
         }
       },
       "policies": {},
@@ -99,10 +99,10 @@
   },
   "enums": {},
   "schemas": {},
+  "views": {},
   "sequences": {},
   "roles": {},
   "policies": {},
-  "views": {},
   "_meta": {
     "columns": {},
     "schemas": {},
