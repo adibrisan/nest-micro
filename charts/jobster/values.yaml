@@ -40,6 +40,12 @@ postgresql:
     username: postgres
     password: postgres
     database: jobster
+  primary:
+    initdb:
+      scripts:
+        create-dbs.sql:
+          CREATE DATABASE auth;
+          CREATE DATABASE products;
   image:
     registry: docker.io
     repository: bitnamilegacy/postgresql
@@ -68,3 +74,11 @@ auth:
   jwt:
     secret: kLcv5p09Q7J0Nb8uclUQW8UIdkxP9PUV
     expirationMs: "28800000"
+
+products:
+  enabled: true
+  replicas: 1
+  image: '563149050413.dkr.ecr.eu-west-1.amazonaws.com/jobster/products:latest'
+  port: 
+    http: 3003
+    grpc: 5001
