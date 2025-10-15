@@ -43,7 +43,7 @@ postgresql:
   primary:
     initdb:
       scripts:
-        create-dbs.sql:
+        create-dbs.sql: |
           CREATE DATABASE auth;
           CREATE DATABASE products;
   image:
