@@ -9,11 +9,13 @@ import { JobsResolver } from './jobs.resolver';
 import { PulsarModule } from '@jobster/pulsar';
 import { ConfigService } from '@nestjs/config';
 import { LoadProductsJob } from './jobs/products/load-products.job';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
     DiscoveryModule,
     PulsarModule,
+    PrismaModule,
     ClientsModule.registerAsync([
       {
         name: Packages.AUTH,
