@@ -5,10 +5,12 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigService } from '@nestjs/config';
 import { Packages } from '@jobster/grpc';
 import { join } from 'path';
+import { JobClientsModule } from '../job-clients.module';
 
 @Module({
   imports: [
     PulsarModule,
+    JobClientsModule,
     ClientsModule.registerAsync([
       {
         name: Packages.PRODUCTS,
@@ -17,10 +19,7 @@ import { join } from 'path';
           options: {
             url: configService.getOrThrow('PRODUCTS_GRPC_SERVICE_URL'),
             package: Packages.PRODUCTS,
-            protoPath: join(
-              __dirname,
-              '../../../libs/grpc/src/lib/proto/products.proto'
-            ),
+            protoPath: join(__dirname, '../../libs/grpc/proto/products.proto'),
           },
         }),
         inject: [ConfigService],

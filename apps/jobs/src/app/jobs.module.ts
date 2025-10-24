@@ -10,6 +10,7 @@ import { PulsarModule } from '@jobster/pulsar';
 import { ConfigService } from '@nestjs/config';
 import { LoadProductsJob } from './jobs/products/load-products.job';
 import { PrismaModule } from './prisma/prisma.module';
+import { JobsController } from './jobs.controller';
 
 @Module({
   imports: [
@@ -24,16 +25,14 @@ import { PrismaModule } from './prisma/prisma.module';
           options: {
             url: configService.getOrThrow('AUTH_GRPC_SERVICE_URL'),
             package: Packages.AUTH,
-            protoPath: join(
-              __dirname,
-              '../../../libs/grpc/src/lib/proto/auth.proto'
-            ),
+            protoPath: join(__dirname, '../../libs/grpc/proto/auth.proto'),
           },
         }),
         inject: [ConfigService],
       },
     ]),
   ],
+  controllers: [JobsController],
   providers: [FibonacciJob, JobsService, JobsResolver, LoadProductsJob],
 })
 export class JobsModule {}
