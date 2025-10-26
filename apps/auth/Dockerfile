@@ -42,7 +42,7 @@ ENV NODE_ENV=production
 
 RUN npm ci
 
-COPY --from=builder /workspace/node_modules/@prisma-clients/auth/ ./node_modules/@prisma-clients/auth
+COPY --from=builder /workspace/node_modules/@prisma-clients/auth/ ./node_modules/@prisma-clients/auth/
 
 COPY --from=builder /workspace/dist ./dist
 

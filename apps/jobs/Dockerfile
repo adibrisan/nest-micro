@@ -44,7 +44,7 @@ ENV NODE_ENV=production
 
 RUN npm ci
 
-COPY --from=builder /workspace/node_modules/@prisma-clients/jobs/ ./node_modules/@prisma-clients/jobs
+COPY --from=builder /workspace/node_modules/@prisma-clients/jobs/ ./node_modules/@prisma-clients/jobs/
 COPY --from=builder /workspace/dist ./dist
 
 COPY libs/grpc/src/lib/proto ./libs/grpc/src/lib/proto
