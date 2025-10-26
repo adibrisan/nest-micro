@@ -47,6 +47,7 @@ postgresql:
           CREATE DATABASE auth;
           CREATE DATABASE products;
           CREATE DATABASE jobs;
+          
   image:
     registry: docker.io
     repository: bitnamilegacy/postgresql
