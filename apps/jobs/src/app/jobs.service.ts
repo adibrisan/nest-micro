@@ -53,6 +53,9 @@ export class JobsService implements OnModuleInit {
   }
 
   async acknowledge(jobId: number) {
+    if (jobId == null) {
+      throw new BadRequestException('jobId must be provided');
+    }
     const job = await this.prismaService.job.findUnique({
       where: { id: jobId },
     });
