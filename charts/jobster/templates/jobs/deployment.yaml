@@ -1,4 +1,4 @@
-{{- if .Values.jobs.enabled}}
+{{- if .Values.jobs.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,8 +6,8 @@ metadata:
   labels:
     app: jobs
 spec:
-  replicas: {{ .Values.jobs.replicas}}
-  selector: 
+  replicas: {{ .Values.jobs.replicas }}
+  selector:
     matchLabels:
       app: jobs
   template:
@@ -15,15 +15,15 @@ spec:
       labels:
         app: jobs
     spec:
-      initContainers: 
+      initContainers:
         - name: prisma-migrate
           image: {{ .Values.jobs.image }}
           imagePullPolicy: {{ .Values.global.imagePullPolicy }}
-          command: ["sh","-c"]
-          args: 
+          command: ["sh", "-c"]
+          args:
             - |
-              npx prisma migrate deploy --schema=/app/apps/jobs/prisma/schema.prisma
-          env: 
+              npx prisma migrate deploy --schema=apps/jobs/prisma/schema.prisma
+          env:
             {{- include "common.env" . | nindent 12 }}
             - name: DATABASE_URL
               value: postgresql://postgres:postgres@{{ .Release.Name }}-postgresql.postgresql.svc.cluster.local:5432/jobs
