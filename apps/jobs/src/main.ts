@@ -15,7 +15,7 @@ async function bootstrap() {
     options: {
       url: app.get(ConfigService).getOrThrow('JOBS_GRPC_SERVICE_URL'),
       package: Packages.JOBS,
-      protoPath: join(__dirname, '../../../libs/grpc/src/lib/proto/jobs.proto'),
+      protoPath: join(__dirname, '../../libs/grpc/proto/jobs.proto'),
     },
   });
   await app.startAllMicroservices();
