@@ -11,6 +11,6 @@ spec:
     app: jobs
   ports:
     - protocol: TCP
-      port: 5002
-      targetPort: 5002
+      port: {{ .Values.jobs.port.grpc }}
+      targetPort: {{ .Values.jobs.port.grpc }}
 {{- end }}
