@@ -36,7 +36,7 @@ spec:
               mountPath: /app/apps/jobs/uploads
           ports:
             - containerPort: {{ .Values.jobs.port.http }}
-            - containerPort: {{ .Values.jobs.port.grpc }}
+            - containerPort: 5002
           env:
             {{- include "common.env" . | nindent 12 }}
             - name: AUTH_GRPC_SERVICE_URL
@@ -44,7 +44,7 @@ spec:
             - name: PORT
               value: "{{ .Values.jobs.port.http }}"
             - name: JOBS_GRPC_SERVICE_URL
-              value: "0.0.0.0:{{ .Values.jobs.port.grpc }}"
+              value: "0.0.0.0:5002"
             - name: DATABASE_URL
               value: postgresql://postgres:postgres@{{ .Release.Name }}-postgresql.postgresql.svc.cluster.local:5432/jobs
       volumes:
