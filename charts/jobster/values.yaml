@@ -4,6 +4,8 @@ global:
 pulsar:
   namespace: pulsar
   namespaceCreate: true
+  components:
+    proxy: false
   zookeeper:
     replicaCount: 1
     podMonitor:
@@ -47,7 +49,7 @@ postgresql:
           CREATE DATABASE auth;
           CREATE DATABASE products;
           CREATE DATABASE jobs;
-          
+
   image:
     registry: docker.io
     repository: bitnamilegacy/postgresql
