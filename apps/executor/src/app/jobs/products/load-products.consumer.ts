@@ -34,6 +34,17 @@ export class LoadProductsConsumer
   }
 
   protected async execute(data: LoadProductsMessage) {
-    await firstValueFrom(this.productsService.createProduct(data));
+    try {
+      await firstValueFrom(this.productsService.createProduct(data));
+    } catch (err: any) {
+      console.error('[LoadProductsConsumer] Failed to create product', {
+        data,
+        code: err?.code,
+        message: err?.message,
+        details: err?.details,
+        stack: err?.stack,
+      });
+      throw err;
+    }
   }
 }

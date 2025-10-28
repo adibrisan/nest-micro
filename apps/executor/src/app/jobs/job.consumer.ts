@@ -28,8 +28,19 @@ export abstract class JobConsumer<
   }
 
   protected async onMessage(data: T): Promise<void> {
-    await this.execute(data);
-    await firstValueFrom(this.jobsService.acknowledge(data));
+    try {
+      await this.execute(data);
+      await firstValueFrom(this.jobsService.acknowledge(data));
+    } catch (err: any) {
+      console.error('[JobConsumer] Failed to process job', {
+        data,
+        code: err?.code,
+        message: err?.message,
+        details: err?.details,
+        stack: err?.stack,
+      });
+      throw err;
+    }
   }
 
   protected abstract execute(data: T): Promise<void>;
