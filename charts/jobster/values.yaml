@@ -4,8 +4,6 @@ global:
 pulsar:
   namespace: pulsar
   namespaceCreate: true
-  components:
-    proxy: false
   zookeeper:
     replicaCount: 1
     podMonitor:
