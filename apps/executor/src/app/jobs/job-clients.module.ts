@@ -15,6 +15,11 @@ import { join } from 'path';
             url: configService.getOrThrow('JOBS_GRPC_SERVICE_URL'),
             package: Packages.JOBS,
             protoPath: join(__dirname, '../../libs/grpc/proto/jobs.proto'),
+            loader: { keepCase: true },
+            channelOptions: {
+              'grpc.max_reconnect_backoff_ms': 1000,
+              'grpc.min_reconnect_backoff_ms': 500,
+            },
           },
         }),
         inject: [ConfigService],

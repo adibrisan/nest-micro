@@ -20,6 +20,11 @@ import { JobClientsModule } from '../job-clients.module';
             url: configService.getOrThrow('PRODUCTS_GRPC_SERVICE_URL'),
             package: Packages.PRODUCTS,
             protoPath: join(__dirname, '../../libs/grpc/proto/products.proto'),
+            loader: { keepCase: true },
+            channelOptions: {
+              'grpc.max_reconnect_backoff_ms': 1000,
+              'grpc.min_reconnect_backoff_ms': 500,
+            },
           },
         }),
         inject: [ConfigService],

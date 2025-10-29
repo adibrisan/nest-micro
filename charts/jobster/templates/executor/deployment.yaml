@@ -23,6 +23,11 @@ spec:
             - containerPort: {{ .Values.executor.port }}
           env:
             {{- include "common.env" . | nindent 12 }}
+          readinessProbe:                 
+            tcpSocket:
+              port: {{ .Values.jobs.port.grpc }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
             - name: PORT
               value: "{{ .Values.executor.port }}"
             - name: JOBS_GRPC_SERVICE_URL
