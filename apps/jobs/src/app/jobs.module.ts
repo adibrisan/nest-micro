@@ -25,7 +25,10 @@ import { JobsController } from './jobs.controller';
           options: {
             url: configService.getOrThrow('AUTH_GRPC_SERVICE_URL'),
             package: Packages.AUTH,
-            protoPath: join(__dirname, '../../libs/grpc/proto/auth.proto'),
+            protoPath: join(
+              __dirname,
+              '../../../../libs/grpc/src/lib/proto/auth.proto'
+            ),
           },
         }),
         inject: [ConfigService],
