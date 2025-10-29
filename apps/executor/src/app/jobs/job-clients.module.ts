@@ -14,10 +14,7 @@ import { join } from 'path';
           options: {
             url: configService.getOrThrow('JOBS_GRPC_SERVICE_URL'),
             package: Packages.JOBS,
-            protoPath: join(
-              __dirname,
-              '../../../../../libs/grpc/src/lib/proto/jobs.proto'
-            ),
+            protoPath: join(__dirname, '../../libs/grpc/proto/jobs.proto'),
             loader: { keepCase: true },
             channelOptions: {
               'grpc.max_reconnect_backoff_ms': 1000,
