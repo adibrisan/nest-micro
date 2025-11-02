@@ -7,6 +7,7 @@ module.exports = {
       target: 'node',
       compiler: 'tsc',
       main: './src/main.ts',
+      sourceMap: true,
       tsConfig: './tsconfig.app.json',
       assets: ['./src/assets'],
       optimization: false,
