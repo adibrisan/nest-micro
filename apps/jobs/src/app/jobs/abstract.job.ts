@@ -31,9 +31,10 @@ export abstract class AbstractJob<T extends object> {
       for (const message of data) {
         this.send({ ...message, jobId: job.id });
       }
-      return;
+      return job;
     }
     this.send({ ...data, jobId: job.id });
+    return job;
   }
 
   private send(data: T) {
