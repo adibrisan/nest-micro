@@ -15,7 +15,7 @@ spec:
 {{- end }}
   rules:
     - http:
-    {{-if not .Values.ingress.alb}}
+    {{- if not .Values.ingress.alb}}
       host: jobster.local
     {{- end}}
         paths:
