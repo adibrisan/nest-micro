@@ -14,8 +14,10 @@ spec:
   ingressClassName: alb
 {{- end }}
   rules:
-    - host: {{ if .Values.ingress.alb }} jobster-backend.com {{ else }} jobster.local {{ end }}
-      http:
+    - http:
+    {{-if not .Values.ingress.alb}}
+      host: jobster.local
+    {{- end}}
         paths:
           - path: /jobs
             pathType: Prefix
